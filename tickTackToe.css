@@ -1,0 +1,20 @@
+.container {
+
+}
+
+.gameBlock {
+    display: flex;
+    flex-wrap: wrap;
+    width: 310px;
+}
+
+.block {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #5a5757;
+    cursor: pointer;
+}
+
+.block:hover {
+    background-color: #b1b1b1;
+}
