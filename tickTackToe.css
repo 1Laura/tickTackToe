@@ -32,11 +32,20 @@
 
 .x {
     background-color: indianred;
+    background-image: url(assets/times-solid.svg);
+    background-size: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .o {
     background-color: #49ba18;
+    background-image: url(assets/circle-regular.svg);
+    background-size: 55px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
+
 
 #modal {
     display: none;
@@ -44,7 +53,7 @@
     top: 200px;
     left: 300px;
     width: 600px;
-    height: 500px;
+    height: 450px;
     background-color: #9d6c9c;
     text-align: center;
     font-size: 80px;
