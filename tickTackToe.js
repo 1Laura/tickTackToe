@@ -16,6 +16,7 @@ const gameArr = []
 
 let gameOver = false
 let symbol1 = 'X'
+symbol1.a
 let symbol2 = 'O'
 
 function displayGameBlock() {
@@ -38,13 +39,21 @@ function playersNames() {
     displayPlayer2name.innerText = player2name
 }
 
+let turn = true
+
 function clickedBlock(event) {
-    console.log(event)
-    block.innerHTML = symbol1
-    console.log(symbol2)
-
+    let el = event.target
+    if (!el.classList.contains('o') && !el.classList.contains('x')) {
+        if (turn) {
+            el.classList.add('x')
+            checkWin('x')
+        } else {
+            el.classList.add('o')
+            checkWin('o')
+        }
+        turn = !turn
+    }
 }
-
 
 function startGame(e) {
     player1name = `Player1: ${e.path[2].children[0].firstElementChild.value}`
@@ -52,60 +61,27 @@ function startGame(e) {
 
     displayGameBlock()
     playersNames()
-    console.log(e)
 }
 
+function checkWin(symbol) {
+    let wins = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6]
+    ]
+    wins.map(x => {
+        if (block[x[0]].classList.contains(symbol) &&
+            block[x[1]].classList.contains(symbol) &&
+            block[x[2]].classList.contains(symbol)) {
+            console.log(symbol = 'wins')
 
-// const displayGameBlock = (() => {
-// function displayNames(player1name, player2name) {
-//     displayPlayer1name.innerText = player1name
-//     displayPlayer2name.innerText = player2name
-// }
-// function startGame(e) {
-// player1name = `Player1: ${e.path[2].children[0].firstElementChild.value}`
-// player2name = `Player2: ${e.path[2].children[1].firstElementChild.value}`
+        }
 
-// playGame(player1name, player2name)
-// displayNames(player1name, player2name)
-// }
-
-// btnPlay.addEventListener('click', function () {
-//     startGame()
-//     updateTurnDisplay(true, false)
-// })
-//
-//     const updateTurnDisplay = (player1turn, player2turn) => {
-//
-//     }
-//
-//     return {gameArr, player1name, player2name, updateTurnDisplay}
-// })()
-
-//
-// const createPlayers = (playerName, marker, value) => {
-//     const mark = function (e) {
-//         e.target.textContent = marker;
-//         displayGameBlock.gameArr[e.target.dataset.index] = value
-//     }
-//     return {playerName, mark, value}
-// }
-//
-//
-// const playGame = (displayPlayer1name, displayPlayer2name) => {
-//     const player1 = createPlayers(displayPlayer1name, 'X', 1)
-//     const player2 = createPlayers(displayPlayer2name, 'O', 2)
-//
-//
-//     console.log(player1)
-//     block.forEach(function (item) {
-//         item.addEventListener('click', function (event) {
-//             // if(event.target.tex){
-//             //
-//             // }
-//             console.log(event)
-//         })
-//     })
-//
-// }
-
+    })
+}
 
