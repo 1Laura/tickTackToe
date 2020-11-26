@@ -2,7 +2,7 @@
 
 }
 
-.gameBlock {
+#gameBlock {
     display: flex;
     flex-wrap: wrap;
     width: 310px;
@@ -16,5 +16,14 @@
 }
 
 .block:hover {
-    background-color: #b1b1b1;
+    background-color: #e3e3e3;
+}
+
+.margin {
+    margin: 20px;
+}
+
+.displayFlex {
+    display: flex;
+    justify-content: space-evenly;
 }
